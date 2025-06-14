@@ -39,15 +39,15 @@ public class ItemHairBand extends ItemArmor {
    }
 
    private static int getTypeOffset(int meta) {
-      return meta < ItemHairBand.HairBandType.values().length ? meta : 0;
+      return meta < HairBandType.values().length ? meta : 0;
    }
 
-   public static ItemHairBand.HairBandType getType(ItemStack stack) {
-      return ItemHairBand.HairBandType.values()[getTypeOffset(stack)];
+   public static HairBandType getType(ItemStack stack) {
+      return HairBandType.values()[getTypeOffset(stack)];
    }
 
-   private static ItemHairBand.HairBandType getType(int meta) {
-      return ItemHairBand.HairBandType.values()[getTypeOffset(meta)];
+   private static HairBandType getType(int meta) {
+      return HairBandType.values()[getTypeOffset(meta)];
    }
 
    @SideOnly(Side.CLIENT)
@@ -57,11 +57,11 @@ public class ItemHairBand extends ItemArmor {
 
    @SideOnly(Side.CLIENT)
    public void registerIcons(IIconRegister ir) {
-      ItemHairBand.HairBandType[] var2 = ItemHairBand.HairBandType.values();
+      HairBandType[] var2 = HairBandType.values();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         ItemHairBand.HairBandType fancytailsType = var2[var4];
+         HairBandType fancytailsType = var2[var4];
          fancytailsType.registerIcon(ir);
       }
 
@@ -73,17 +73,17 @@ public class ItemHairBand extends ItemArmor {
    }
 
    public String getUnlocalizedName(ItemStack itemStack) {
-      ItemHairBand.HairBandType type = getType(itemStack);
+      HairBandType type = getType(itemStack);
       return "item." + type.ordinal();
    }
 
    @SideOnly(Side.CLIENT)
    public void getSubItems(Item item, CreativeTabs creativeTabs, List itemList) {
-      ItemHairBand.HairBandType[] var4 = ItemHairBand.HairBandType.values();
+      HairBandType[] var4 = HairBandType.values();
       int var5 = var4.length;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         ItemHairBand.HairBandType fancytailsType = var4[var6];
+         HairBandType fancytailsType = var4[var6];
          itemList.add(new ItemStack(item, 1, fancytailsType.ordinal()));
       }
 

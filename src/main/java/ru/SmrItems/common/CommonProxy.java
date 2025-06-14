@@ -18,6 +18,7 @@ public class CommonProxy {
    public void init(FMLInitializationEvent event) {
       Registry.Blocks.register();
       this.registerRenderers();
+
       Registry.TileEntity.register();
       Registry.Gui.register();
    }

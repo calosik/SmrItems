@@ -1,5 +1,7 @@
 package ru.SmrItems.modules.main;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -32,7 +34,6 @@ import org.lwjgl.opengl.GL11;
 import ru.SmrItems.common.utils.CharacterUtils;
 import ru.SmrItems.common.utils.GuiUtils;
 import ru.SmrItems.common.utils.TextureInfo;
-import ru.SmrItems.utils.json.JSONObject;
 
 @SideOnly(Side.CLIENT)
 public final class GuiNewMainMenu extends GuiScreen {
@@ -73,7 +74,7 @@ public final class GuiNewMainMenu extends GuiScreen {
          HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
          conn.setRequestMethod("GET");
          SSLContext sc = SSLContext.getInstance("TLS");
-         sc.init((KeyManager[])null, new TrustManager[]{new GuiNewMainMenu.MyTrustManager()}, new SecureRandom());
+         sc.init((KeyManager[])null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
          conn.setSSLSocketFactory(sc.getSocketFactory());
          BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
          StringBuilder result = new StringBuilder();
@@ -84,8 +85,8 @@ public final class GuiNewMainMenu extends GuiScreen {
          }
 
          rd.close();
-         JSONObject json = new JSONObject(result.toString());
-         return json.getString("serverIP");
+         JsonObject json = new JsonParser().parse(result.toString()).getAsJsonObject();
+         return json.get("serverIP").getAsString();
       } catch (Exception var9) {
          var9.printStackTrace();
          return null;

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="smritems-src">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/smritems-src.jar!/" />
+    </SOURCES>
+  </library>
+</component>

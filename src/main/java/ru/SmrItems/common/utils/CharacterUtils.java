@@ -25,7 +25,7 @@ public class CharacterUtils {
 
    public static void loadCharacterInfo() {
       if (backCharacter == null) {
-         EXECUTOR_SERVICE.submit(new CharacterUtils.CharacterLoadTask(Minecraft.getMinecraft().getSession().getUsername()));
+         EXECUTOR_SERVICE.submit(new CharacterLoadTask(Minecraft.getMinecraft().getSession().getUsername()));
       }
 
    }
@@ -61,7 +61,7 @@ public class CharacterUtils {
          try {
             URL url = new URL(String.format("", this.username));
             String json = Resources.asCharSource(url, Charsets.UTF_8).read();
-            CharacterUtils.CharacterLoadTask.JsonResponse response = (CharacterUtils.CharacterLoadTask.JsonResponse)(new Gson()).fromJson(json, CharacterUtils.CharacterLoadTask.JsonResponse.class);
+            JsonResponse response = (JsonResponse)(new Gson()).fromJson(json, JsonResponse.class);
             if (!Strings.isNullOrEmpty(response.backgroundUrl)) {
                CharacterUtils.tempBackground = downloadImage(response.backgroundUrl);
             } else if (!Strings.isNullOrEmpty(response.characterUrl)) {

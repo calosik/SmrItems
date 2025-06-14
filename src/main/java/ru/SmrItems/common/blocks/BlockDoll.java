@@ -63,7 +63,7 @@ public final class BlockDoll extends BlockBaseContainer<TileEntityDoll> implemen
    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list) {
       int meta = this.startTypeIndex;
 
-      for(int endTypeIndex = Math.min(this.startTypeIndex + 16, BlockDoll.DollType.values().length); meta < endTypeIndex; ++meta) {
+      for(int endTypeIndex = Math.min(this.startTypeIndex + 16, DollType.values().length); meta < endTypeIndex; ++meta) {
          list.add(new ItemStack(item, 1, meta - this.startTypeIndex));
       }
 
@@ -180,8 +180,8 @@ public final class BlockDoll extends BlockBaseContainer<TileEntityDoll> implemen
          return this.isGui && this.getLoreOnItemDoll();
       }
 
-      public static BlockDoll.DollType getTypeFromStack(ItemStack stack) {
-         BlockDoll.DollType[] values = values();
+      public static DollType getTypeFromStack(ItemStack stack) {
+         DollType[] values = values();
          if (stack != null) {
             Item item = stack.getItem();
             if (item instanceof ItemBlock && ((ItemBlock)item).field_150939_a instanceof BlockDoll) {
@@ -193,8 +193,8 @@ public final class BlockDoll extends BlockBaseContainer<TileEntityDoll> implemen
          return values[0];
       }
 
-      public static BlockDoll.DollType getTypeFromIndex(int index) {
-         BlockDoll.DollType[] values = values();
+      public static DollType getTypeFromIndex(int index) {
+         DollType[] values = values();
          return values[MathHelper.clamp_int(index, 0, values.length - 1)];
       }
    }
