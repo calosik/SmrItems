@@ -7,8 +7,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import ru.SmrItems.Config;
 import ru.SmrItems.common.tileentity.TileWorldAnchor;
-import ru.SmrItems.common.utils.enums.FieldType;
-import ru.SmrItems.common.utils.enums.LoadingMode;
+import ru.SmrItems.util.enums.FieldType;
+import ru.SmrItems.util.enums.LoadingMode;
 
 public class PacketClickButton implements IMessage {
    private int buttonId;

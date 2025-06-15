@@ -8,7 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import org.lwjgl.opengl.GL11;
-import ru.SmrItems.common.utils.AnchorsChunkManager;
+import ru.SmrItems.util.AnchorsChunkManager;
 
 public class EventVisualRenderer {
    private final Minecraft mc = Minecraft.getMinecraft();

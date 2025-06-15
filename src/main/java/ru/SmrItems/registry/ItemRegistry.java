@@ -4,10 +4,15 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import ru.SmrItems.common.blocks.BlockDoll;
-import ru.SmrItems.items.*;
-import ru.SmrItems.util.regisrty.RegistryUtils;
-import ru.SmrItems.world.ore.UnstableOre;
+import ru.SmrItems.items.CompressUnstableCrystal;
+import ru.SmrItems.items.FuelUnstable;
 import ru.SmrItems.items.ItemCase;
+import ru.SmrItems.items.ItemHairBand;
+import ru.SmrItems.items.SelectItem;
+import ru.SmrItems.items.UnstableDrop;
+import ru.SmrItems.items.UnstableDust;
+import ru.SmrItems.util.registry.RegistryUtils;
+import ru.SmrItems.world.ore.UnstableOre;
 import ru.SmrItems.world.ore.UnstableOreEnd;
 
 public class ItemRegistry {

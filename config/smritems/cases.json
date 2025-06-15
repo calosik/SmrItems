@@ -1,0 +1,24 @@
+{
+  "vanilla": [
+    {
+      "modid": "minecraft",
+      "itemName": "diamond",
+      "maxAmount": 16
+    },
+    {
+      "modid": "minecraft",
+      "itemName": "emerald",
+      "maxAmount": 16
+    },
+    {
+      "modid": "minecraft",
+      "itemName": "nether_star",
+      "maxAmount": 1
+    },
+    {
+      "modid": "minecraft",
+      "itemName": "golden_apple",
+      "maxAmount": 4
+    }
+  ]
+}

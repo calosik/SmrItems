@@ -15,8 +15,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import ru.SmrItems.common.tileentity.TileEntityDoll;
 import ru.SmrItems.items.ItemBlockDoll;
-import ru.SmrItems.util.regisrty.IHasItemBlock;
-import ru.SmrItems.util.regisrty.IHasNamedTileEntity;
+import ru.SmrItems.util.registry.IHasItemBlock;
+import ru.SmrItems.util.registry.IHasNamedTileEntity;
 
 public final class BlockDoll extends BlockBaseContainer<TileEntityDoll> implements IHasNamedTileEntity<TileEntityDoll>, IHasItemBlock {
    public final int startTypeIndex;

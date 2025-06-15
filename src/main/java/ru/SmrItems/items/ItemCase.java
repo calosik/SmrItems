@@ -15,10 +15,13 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
+import net.minecraft.client.resources.I18n;
 
 public class ItemCase extends Item {
     private final String caseType;
+    private static Map<String, List<CaseItem>> allCases;
+    private static boolean hasAttemptedLoad = false;
+    private final Random random = new Random();
 
     public ItemCase(String name, String texture, int maxStackSize, String caseType) {
         this.caseType = caseType;
@@ -32,13 +35,17 @@ public class ItemCase extends Item {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (!world.isRemote) {
+            if (allCases == null && !hasAttemptedLoad) {
+                allCases = loadCasesFromFile("config/smritems/cases.json");
+                hasAttemptedLoad = true;
+            }
             ItemStack reward = getRandomItemFromCase(caseType);
             if (reward != null) {
                 player.inventory.addItemStackToInventory(reward);
-                player.addChatComponentMessage(new ChatComponentText("Вы получили: " + reward.getDisplayName()));
+                player.addChatComponentMessage(new ChatComponentText(I18n.format("chat.case.received", reward.getDisplayName())));
                 stack.stackSize--; // Уменьшаем количество кейсов на 1
             } else {
-                //player.addChatComponentMessage(new ChatComponentText("The case is empty or an error occurred."));
+                player.addChatComponentMessage(new ChatComponentText(I18n.format("chat.case.error.empty_or_not_found")));
             }
         }
         return stack;
@@ -51,14 +58,16 @@ public class ItemCase extends Item {
     }
 
     private ItemStack getRandomItemFromCase(String caseType) {
-        // Загрузка предметов из JSON
-        Map<String, List<CaseItem>> cases = loadCasesFromFile("config/smritems/cases.json");
+        Map<String, List<CaseItem>> cases = allCases;
         if (cases != null && cases.containsKey(caseType)) {
             List<CaseItem> items = cases.get(caseType);
-            Random random = new Random();
+            if (items == null || items.isEmpty()) {
+                System.out.println("Кейс типа " + caseType + " не содержит предметов.");
+                return null;
+            }
 
             // Случайный выбор предмета из списка
-            CaseItem selectedItem = items.get(random.nextInt(items.size()));
+            CaseItem selectedItem = items.get(this.random.nextInt(items.size()));
 
             // Логирование для отладки
             System.out.println("Выбранный предмет: " + selectedItem.modid + ":" + selectedItem.itemName);
@@ -67,7 +76,9 @@ public class ItemCase extends Item {
             Item item = GameRegistry.findItem(selectedItem.modid, selectedItem.itemName);
             if (item != null) {
                 // Случайное количество от 1 до maxAmount
-                int randomAmount = ThreadLocalRandom.current().nextInt(1, selectedItem.maxAmount + 1);
+                int maxAmount = selectedItem.maxAmount;
+                if (maxAmount < 1) maxAmount = 1;
+                int randomAmount = 1 + random.nextInt(maxAmount);
                 return new ItemStack(item, randomAmount);
             } else {
                 System.out.println("Не удалось найти предмет: " + selectedItem.modid + ":" + selectedItem.itemName);
@@ -83,7 +94,7 @@ public class ItemCase extends Item {
 
 
 
-    private Map<String, List<CaseItem>> loadCasesFromFile(String filePath) {
+    private static Map<String, List<CaseItem>> loadCasesFromFile(String filePath) {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(filePath)) {
             Type type = new TypeToken<Map<String, List<CaseItem>>>() {}.getType();
@@ -98,7 +109,8 @@ public class ItemCase extends Item {
 
             return cases;
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Ошибка при загрузке файла cases.json из " + filePath + ": " + e.getMessage());
+            e.printStackTrace(); // Keep stack trace for full details
         }
         return null;
     }

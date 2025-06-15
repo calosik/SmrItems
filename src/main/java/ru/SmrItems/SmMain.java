@@ -18,7 +18,7 @@ import ru.SmrItems.world.GenOre;
 @Mod(
    modid = "SmrItems",
    name = "SmrItems",
-   version = "1.2.4",
+   version = "0.1B",
    dependencies = "after:IC2"
 )
 public class SmMain {

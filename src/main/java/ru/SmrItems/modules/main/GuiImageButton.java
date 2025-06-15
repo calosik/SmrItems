@@ -7,7 +7,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import ru.SmrItems.common.utils.GuiUtils;
+import ru.SmrItems.util.GuiUtils;
 
 @SideOnly(Side.CLIENT)
 public final class GuiImageButton extends GuiButton {

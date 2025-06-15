@@ -17,9 +17,10 @@ import ru.SmrItems.client.render.ItemRenderDoll;
 import ru.SmrItems.client.render.TileRenderDoll;
 import ru.SmrItems.common.CommonProxy;
 import ru.SmrItems.common.tileentity.TileEntityDoll;
-import ru.SmrItems.common.utils.CharacterUtils;
 import ru.SmrItems.modules.main.ClientEventHandler;
 import ru.SmrItems.registry.RegItems;
+import ru.SmrItems.util.CharacterUtils;
+import ru.SmrItems.util.CharacterUtils;
 
 public class ClientProxy extends CommonProxy {
    public static final KeyBinding visualRenderKeybind = new KeyBinding("key.chunkloading.view", 68, "key.chunkloading.category");

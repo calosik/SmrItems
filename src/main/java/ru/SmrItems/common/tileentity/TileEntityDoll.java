@@ -9,7 +9,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.MathHelper;
 import ru.SmrItems.common.blocks.BlockDoll;
-import ru.SmrItems.common.utils.BlockPos;
+import ru.SmrItems.util.BlockPos;
 
 public final class TileEntityDoll extends TileBase {
    public int direction;

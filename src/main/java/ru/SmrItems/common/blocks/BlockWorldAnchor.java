@@ -20,9 +20,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import ru.SmrItems.SmMain;
 import ru.SmrItems.common.tileentity.TileWorldAnchor;
-import ru.SmrItems.common.utils.enums.FieldType;
-import ru.SmrItems.common.utils.enums.LoadingMode;
-import ru.SmrItems.utils.Logger;
+import ru.SmrItems.util.Logger;
+import ru.SmrItems.util.enums.FieldType;
+import ru.SmrItems.util.enums.LoadingMode;
 
 public class BlockWorldAnchor extends BlockContainer {
    @SideOnly(Side.CLIENT)

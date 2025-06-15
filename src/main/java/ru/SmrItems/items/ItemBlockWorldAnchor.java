@@ -8,8 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import ru.SmrItems.common.utils.enums.LoadingMode;
-import ru.SmrItems.utils.Utils;
+import ru.SmrItems.util.Utils;
+import ru.SmrItems.util.enums.LoadingMode;
 
 public class ItemBlockWorldAnchor extends ItemBlock {
    public ItemBlockWorldAnchor(Block block) {

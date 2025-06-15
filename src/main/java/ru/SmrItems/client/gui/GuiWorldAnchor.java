@@ -10,8 +10,8 @@ import ru.SmrItems.common.handlers.PacketHandler;
 import ru.SmrItems.common.inventory.containers.ContainerWorldAnchor;
 import ru.SmrItems.common.packets.PacketClickButton;
 import ru.SmrItems.common.tileentity.TileWorldAnchor;
-import ru.SmrItems.common.utils.enums.FieldType;
-import ru.SmrItems.utils.Utils;
+import ru.SmrItems.util.Utils;
+import ru.SmrItems.util.enums.FieldType;
 
 public class GuiWorldAnchor extends GuiContainer {
    public static final ResourceLocation RESOURCE_LOCATION_GUI = new ResourceLocation("smritems:textures/container/gui/guiChunkLoader.png");

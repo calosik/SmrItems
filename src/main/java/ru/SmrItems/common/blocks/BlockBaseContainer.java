@@ -14,8 +14,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import ru.SmrItems.SmMain;
 import ru.SmrItems.common.tileentity.TileBase;
-import ru.SmrItems.util.regisrty.IHasName;
-import ru.SmrItems.util.regisrty.IHasTileEntity;
+import ru.SmrItems.util.registry.IHasName;
+import ru.SmrItems.util.registry.IHasTileEntity;
 
 public abstract class BlockBaseContainer<T extends TileBase> extends BlockContainer implements IHasName, IHasTileEntity<T> {
    private final String name;

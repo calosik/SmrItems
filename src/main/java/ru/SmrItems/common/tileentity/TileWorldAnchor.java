@@ -17,11 +17,11 @@ import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 import ru.SmrItems.Config;
 import ru.SmrItems.SmMain;
-import ru.SmrItems.common.utils.AnchorsChunkManager;
-import ru.SmrItems.common.utils.BlockPos;
-import ru.SmrItems.common.utils.enums.FieldType;
-import ru.SmrItems.common.utils.enums.LoadingMode;
 import ru.SmrItems.items.FuelUnstable;
+import ru.SmrItems.util.AnchorsChunkManager;
+import ru.SmrItems.util.BlockPos;
+import ru.SmrItems.util.enums.FieldType;
+import ru.SmrItems.util.enums.LoadingMode;
 
 public class TileWorldAnchor extends TileEntity implements IInventory, ISidedInventory {
    private ItemStack itemsInFirstSlot;

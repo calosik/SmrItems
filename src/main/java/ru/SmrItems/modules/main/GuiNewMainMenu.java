@@ -31,9 +31,9 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import ru.SmrItems.common.utils.CharacterUtils;
-import ru.SmrItems.common.utils.GuiUtils;
-import ru.SmrItems.common.utils.TextureInfo;
+import ru.SmrItems.util.CharacterUtils;
+import ru.SmrItems.util.GuiUtils;
+import ru.SmrItems.util.TextureInfo;
 
 @SideOnly(Side.CLIENT)
 public final class GuiNewMainMenu extends GuiScreen {
